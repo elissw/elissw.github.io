@@ -8305,7 +8305,7 @@ textarea.form-control-lg {
 
 .hero-header {
   position: relative;
-  background-image: linear-gradient(rgba(var(--bs-dark-rgb), 0.6), rgba(var(--bs-dark-rgb), 0.6)), url("../assets/gradient.png");
+  background-image: linear-gradient(rgba(var(--bs-dark-rgb), 0.6), rgba(var(--bs-dark-rgb), 0.6)), url("../assets/gradient.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
