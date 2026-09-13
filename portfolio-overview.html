@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>E. Stamati - Portfolio Overview</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .portfolio-gallery-intro {
+                max-width: 760px;
+            }
+
+            .project-tile {
+                display: grid;
+                grid-template-rows: minmax(0, 1fr) 8.5rem;
+                aspect-ratio: 1 / 1;
+                background-color: #ffffff;
+                border: 1px solid rgba(82, 77, 120, 0.22);
+                border-radius: 0.8rem;
+                overflow: hidden;
+                color: var(--palette-midnight-ink);
+                transition: transform 0.18s ease, box-shadow 0.18s ease;
+                text-decoration: none;
+            }
+
+            .project-tile:hover,
+            .project-tile:focus-visible {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 24px rgba(4, 11, 16, 0.16);
+                color: var(--palette-midnight-ink);
+            }
+
+            .project-thumb {
+                width: 100%;
+                height: 100%;
+                min-height: 0;
+                object-fit: cover;
+                display: block;
+            }
+
+            .project-thumb-placeholder {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+                background: linear-gradient(135deg, rgba(82, 77, 120, 0.18), rgba(236, 187, 12, 0.28));
+                color: var(--palette-midnight-ink);
+                font-weight: 600;
+                letter-spacing: 0.02em;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .project-meta {
+                background-color: var(--palette-pale-blush);
+                padding: 0.95rem;
+                border-top: 1px solid rgba(82, 77, 120, 0.16);
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .project-title {
+                font-size: 1rem;
+                line-height: 1.35;
+                margin: 0;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                overflow: hidden;
+            }
+
+            .project-tag {
+                display: inline-block;
+                background-color: rgba(82, 77, 120, 0.15);
+                color: var(--palette-midnight-ink);
+                border: 1px solid rgba(82, 77, 120, 0.28);
+                border-radius: 999px;
+                padding: 0.2rem 0.65rem;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                font-weight: 600;
+                align-self: flex-start;
+                margin-top: auto;
+            }
+
+            .project-tile-placeholder {
+                opacity: 0.9;
+            }
+
+            .portfolio-filter {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.6rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .filter-chip {
+                border: 1px solid rgba(82, 77, 120, 0.35);
+                border-radius: 999px;
+                background-color: #ffffff;
+                color: var(--palette-midnight-ink);
+                padding: 0.38rem 0.85rem;
+                font-size: 0.8rem;
+                font-weight: 600;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+            }
+
+            .filter-chip:hover,
+            .filter-chip:focus-visible {
+                background-color: rgba(82, 77, 120, 0.12);
+                border-color: rgba(82, 77, 120, 0.55);
+            }
+
+            .filter-chip.is-active {
+                background-color: var(--palette-muted-indigo);
+                color: var(--palette-pale-blush);
+                border-color: var(--palette-muted-indigo);
+            }
+
+            .portfolio-empty {
+                display: none;
+                margin-top: 1rem;
+                color: var(--palette-midnight-ink);
+            }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100 index-theme" id="top">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="portfolio-overview.html">Portfolio</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="portfolio-gallery-intro mb-5">
+                        <h1 class="fw-bolder mb-3">Portfolio Gallery</h1>
+                        <p class="mb-0">A selection of projects across different media. Click a tile to open a project page.</p>
+                    </div>
+
+                    <div class="portfolio-filter" aria-label="Filter projects by tag">
+                        <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+                        <button class="filter-chip" type="button" data-filter="infographic" aria-pressed="false">Infographic</button>
+                        <button class="filter-chip" type="button" data-filter="data-viz" aria-pressed="false">Data Viz</button>
+                        <button class="filter-chip" type="button" data-filter="code" aria-pressed="false">Code</button>
+                    </div>
+
+                    <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3" id="projectGrid">
+                        <div class="col" data-tag="infographic">
+                            <a class="project-tile h-100" href="project_astro.html" aria-label="Open project: Creating chemical elements: One neutron at a time">
+                                <img
+                                    src="assets/projects/astro_thumbnail.png"
+                                    alt="Thumbnail for Creating chemical elements: One neutron at a time"
+                                    class="project-thumb"
+                                />
+                                <div class="project-meta">
+                                    <h2 class="project-title">Creating chemical elements: One neutron at a time</h2>
+                                    <span class="project-tag">Infographic</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col" data-tag="data-viz">
+                            <a class="project-tile h-100" href="project_redesign.html" aria-label="Open project: Complex to clear: Redesigning data visualisations">
+                                <img
+                                    src="assets/projects/redesign_thumbnail.png"
+                                    alt="Thumbnail for Complex to clear: Redesigning data visualisations"
+                                    class="project-thumb"
+                                />
+                                <div class="project-meta">
+                                    <h2 class="project-title">Complex to clear: Redesigning data visualisations</h2>
+                                    <span class="project-tag">Data Viz</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col" data-tag="infographic">
+                            <a class="project-tile h-100" href="project_mental_health.html" aria-label="Open project: Depressive symptoms: Looking beyond the average">
+                                <img
+                                    src="assets/projects/depressive_symptoms_ehis2019_thumbnail.png"
+                                    alt="Thumbnail for Depressive symptoms: Looking beyond the average"
+                                    class="project-thumb"
+                                />
+                                <div class="project-meta">
+                                    <h2 class="project-title">Depressive symptoms: Looking beyond the average</h2>
+                                    <span class="project-tag">Infographic</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col" data-tag="code">
+                            <a class="project-tile h-100" href="project_theme.html" aria-label="Open project: Code">
+                                <img
+                                    src="assets/projects/theme_thumbnail.png"
+                                    alt="Thumbnail for Code Project"
+                                    class="project-thumb"
+                                />
+                                <div class="project-meta">
+                                    <h2 class="project-title">highstyle: A personal R package for consistent visualisations</h2>
+                                    <span class="project-tag">Code</span>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <p class="portfolio-empty" id="portfolioEmptyState">No projects in this category yet.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; E. Stamati Portfolio 2026</div></div>
+                    <div class="col-auto"><a class="back-to-top small" href="#top">Back to top</a></div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            (function () {
+                const filterButtons = document.querySelectorAll(".filter-chip");
+                const projectCards = document.querySelectorAll("#projectGrid > [data-tag]");
+                const emptyState = document.getElementById("portfolioEmptyState");
+
+                function applyFilter(filterValue) {
+                    let visibleCount = 0;
+
+                    projectCards.forEach(function (card) {
+                        const cardTag = card.getAttribute("data-tag");
+                        const shouldShow = filterValue === "all" || cardTag === filterValue;
+                        card.style.display = shouldShow ? "" : "none";
+                        if (shouldShow) {
+                            visibleCount += 1;
+                        }
+                    });
+
+                    if (emptyState) {
+                        emptyState.style.display = visibleCount === 0 ? "block" : "none";
+                    }
+                }
+
+                filterButtons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        const nextFilter = button.getAttribute("data-filter") || "all";
+
+                        filterButtons.forEach(function (btn) {
+                            const isActive = btn === button;
+                            btn.classList.toggle("is-active", isActive);
+                            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+                        });
+
+                        applyFilter(nextFilter);
+                    });
+                });
+
+                applyFilter("all");
+            })();
+        </script>
+    </body>
+</html>

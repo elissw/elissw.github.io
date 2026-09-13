@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Complex to clear: Redesigning data visualisations" />
+        <meta name="author" content="" />
+        <title>E. Stamati - Complex to clear</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 index-theme" id="top">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="portfolio-overview.html">Portfolio</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <h1 class="fw-bolder mb-4 text-start">Complex to clear: Redesigning data visualisations</h1>
+
+                    <div class="p-4 p-md-5 text-start" style="background-color: var(--palette-pale-blush);">
+                        <div class="row gx-5 align-items-start">
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder mb-4 text-start">Concept &amp; Approach</h2>
+                                <ul class="mb-4" style="color: var(--palette-midnight-ink); max-width: 900px;">
+                                    <li>The goal of this project is to show how a simple and intentional redesign can improve the clarity and effectiveness of data visualisations.</li>
+                                    <li>In order to not misjudge or judge unfairly any real reports, all examples below are built from fictional, simulated data inspired by patterns that show up constantly in real reports.</li>
+                                    <li>Tools: R and ggplot2</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder mb-4 text-start">Design philosophy</h2>
+                                <ul class="mb-0" style="color: var(--palette-midnight-ink); max-width: 900px;">
+                                    <li>Complexity in the data is not an excuse for complexity in its visualisation.</li>
+                                    <li>Every redesign choice below is justified first by what it does for the reader and then by aesthetics.</li>
+                                    <li>Simplifying is not an enemy: Simplifying a visualisation helps the reader focus on the most important information instead of getting lost in numerous details.</li>
+                                    <li>Every visualisation should support one conclusion, otherwise it leads to unnecessary complexity and confusion for the reader.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mt-md-5">
+                        <h2 class="fw-bolder mb-3 text-start">01 - The overdesigned chart</h2>
+                        <div class="plot-comparison-wrap">
+                            <div class="plot-comparison-layout">
+                                <div class="plot-comparison" id="chartjunkComparison" aria-label="Interactive comparison of the chartjunk example before and after redesign">
+                                    <img
+                                        src="assets/projects/chartjunk_before.png"
+                                        alt="Before: a chart with unnecessary decorative elements"
+                                        class="plot-comparison-image"
+                                    />
+                                    <img
+                                        src="assets/projects/chartjunk_after.png"
+                                        alt="After: a redesigned chart with reduced visual clutter"
+                                        class="plot-comparison-image plot-comparison-after"
+                                    />
+                                    <span class="plot-comparison-handle" aria-hidden="true">
+                                        <span class="plot-comparison-arrows" aria-hidden="true">&larr; &rarr;</span>
+                                    </span>
+                                    <label class="visually-hidden" for="chartjunkSlider">Compare the before and after charts</label>
+                                    <input class="plot-comparison-control" id="chartjunkSlider" type="range" min="0" max="100" value="0" aria-label="Compare before and after charts" />
+                                </div>
+                                <p class="plot-comparison-caption">Slide to the right to reveal the redesign.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="redesign-choices p-4 p-md-5 mt-3 mt-md-4">
+                        <h3 class="fw-bolder mb-4 text-start">Redesign choices</h3>
+                        <ul class="mb-0">
+                            <li>Focused the chart on each category's share of the total sales.</li>
+                            <li>Removed unnecessary decorative elements to reduce visual clutter:<br> &gt; 3D effects that actually reduce the readability of the data<br> &gt; Colour that doesn't actually encode any new information<br> &gt; Coloured grid that distracts from the data</li>
+                            <li>Removed duplicate information such as the redundant legend and labels.</li>
+                            <li>Exchanged the axes so that the categories are on the vertical axis and the sales share is on the horizontal axis, making it easier to read the category names.</li>
+                            <li>Re-ordered the categories in descending order of their sales share to highlight the most important categories.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4 mt-md-5">
+                        <h2 class="fw-bolder mb-3 text-start">02 - The overloaded chart</h2>
+                        <div class="plot-comparison-wrap">
+                            <div class="plot-comparison-layout">
+                                <div class="plot-comparison" id="overloadedChartComparison" aria-label="Interactive comparison of the overloaded chart before and after redesign">
+                                    <img
+                                        src="assets/projects/overloaded_chart_before.png"
+                                        alt="Before: an overloaded quarterly operating expenses chart"
+                                        class="plot-comparison-image"
+                                    />
+                                    <img
+                                        src="assets/projects/overloaded_chart_after.png"
+                                        alt="After: a simplified operating expenses chart redesign"
+                                        class="plot-comparison-image plot-comparison-after"
+                                    />
+                                    <span class="plot-comparison-handle" aria-hidden="true">
+                                        <span class="plot-comparison-arrows" aria-hidden="true">&larr; &rarr;</span>
+                                    </span>
+                                    <label class="visually-hidden" for="overloadedChartSlider">Compare the before and after charts</label>
+                                    <input class="plot-comparison-control" id="overloadedChartSlider" type="range" min="0" max="100" value="0" aria-label="Compare before and after charts" />
+                                </div>
+                                <p class="plot-comparison-caption">Slide to the right to reveal the redesign.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="redesign-choices p-4 p-md-5 mt-3 mt-md-4">
+                        <h3 class="fw-bolder mb-4 text-start">Redesign choices</h3>
+                        <ul class="mb-0">
+                            <li>Grouped the expenses into broader categories to make the chart easier to follow.</li>
+                            <li>Split the initial chart into two separate ones that answer different questions: <br>"How do expense categories compare to each other and what's the annual trend?" and "How does each category's expenses change by quarter?"</li>
+                            <li>Used clearer titles, labels on the data itself and a simpler visual hierarchy to direct attention to the main conclusion.</li>
+                            <li>Used a simpler, more minimal theme to reduce visual clutter and focus attention on the data.</li>
+                            <li>Used a professional colour palette to enhance readability, accessibility and visual appeal.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4 mt-md-5">
+                        <h2 class="fw-bolder mb-3 text-start">03 - The overplotted chart</h2>
+                        <div class="plot-comparison-wrap">
+                            <div class="plot-comparison-layout">
+                                <div class="plot-comparison" id="overplottedChartComparison" aria-label="Interactive comparison of the overplotted chart before and after redesign">
+                                    <img
+                                        src="assets/projects/overplotted_scatter_before.png"
+                                        alt="Before: an overplotted scatter chart"
+                                        class="plot-comparison-image"
+                                    />
+                                    <img
+                                        src="assets/projects/overplotted_scatter_after.png"
+                                        alt="After: a redesigned scatter chart"
+                                        class="plot-comparison-image plot-comparison-after"
+                                    />
+                                    <span class="plot-comparison-handle" aria-hidden="true">
+                                        <span class="plot-comparison-arrows" aria-hidden="true">&larr; &rarr;</span>
+                                    </span>
+                                    <label class="visually-hidden" for="overplottedChartSlider">Compare the before and after charts</label>
+                                    <input class="plot-comparison-control" id="overplottedChartSlider" type="range" min="0" max="100" value="0" aria-label="Compare before and after charts" />
+                                </div>
+                                <p class="plot-comparison-caption">Slide to the right to reveal the redesign.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="redesign-choices p-4 p-md-5 mt-3 mt-md-4">
+                        <h3 class="fw-bolder mb-4 text-start">Redesign choices</h3>
+                        <ul class="mb-0">
+                            <li>Lowered the opacity of the points and added horizontal jitter to make it easier to inspect their number.</li>
+                            <li>Colour-coded the points according to the customer type in order to reveal the underlying pattern. Added trend lines to better illustrate them.</li>
+                            <li>Increased the x axis breaks to make it easier to inspect the number of items in each cart.</li>
+                            <li>Used a simpler, more minimal theme to reduce visual clutter and focus attention on the data.</li>
+                            <li>Used a colour combination that is accessible and visually appealing.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-3 mt-md-4 text-start">
+                        <a class="back-to-gallery" href="portfolio-overview.html">Back to gallery</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; E. Stamati Portfolio 2026</div></div>
+                    <div class="col-auto"><a class="back-to-top small" href="#top">Back to top</a></div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            (function () {
+                function setupComparison(comparisonId, sliderId) {
+                    const comparison = document.getElementById(comparisonId);
+                    const slider = document.getElementById(sliderId);
+
+                    if (!comparison || !slider) {
+                        return;
+                    }
+
+                    function updateComparison() {
+                        comparison.style.setProperty("--pos", slider.value + "%");
+                    }
+
+                    slider.addEventListener("input", updateComparison);
+                    updateComparison();
+                }
+
+                setupComparison("overloadedChartComparison", "overloadedChartSlider");
+                setupComparison("overplottedChartComparison", "overplottedChartSlider");
+                setupComparison("chartjunkComparison", "chartjunkSlider");
+            })();
+        </script>
+    </body>
+</html>

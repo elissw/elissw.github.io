@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="highstyle: A personal R package for consistent visualisations" />
+        <meta name="author" content="" />
+        <title>E. Stamati - Project highstyle</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+        <style>
+            .code-showcase {
+                background-color: #ffffff;
+                border-radius: 0.7rem;
+            }
+
+            .code-panel-title {
+                color: var(--palette-midnight-ink);
+            }
+
+            .code-panel-block {
+                margin: 0;
+                background-color: #1d1f24;
+                color: #f4f5f7;
+                border-radius: 0.6rem;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 1rem;
+                overflow-x: auto;
+            }
+
+            .code-panel-block code {
+                font-family: "Consolas", "Courier New", monospace;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                white-space: pre;
+            }
+
+            .github-project-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.6rem 1rem;
+                background-color: var(--palette-muted-indigo);
+                color: var(--palette-pale-blush);
+                border: 1px solid rgba(82, 77, 120, 0.35);
+                border-radius: 0.5rem;
+                text-decoration: none;
+                font-weight: 600;
+                letter-spacing: 0.01em;
+                transition: background-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+            }
+
+            .github-project-link:hover,
+            .github-project-link:focus-visible {
+                background-color: #ffffff;
+                color: var(--palette-midnight-ink);
+                transform: translateY(-1px);
+            }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100 index-theme" id="top">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html#top">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="portfolio-overview.html">Portfolio</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="py-5">
+                <div class="container px-5 my-5">
+
+                    <h1 class="fw-bolder mb-4 text-start">highstyle: A personal R package for consistent visualisations</h1>
+
+                    <div class="p-4 p-md-5 text-start" style="background-color: var(--palette-pale-blush);">
+                        <div class="row gx-5 align-items-start">
+                            <div class="col-lg-5">
+                                <h2 class="fw-bolder mb-4 text-start">Motivation</h2>
+                                <ul class="mb-4 mb-lg-0" style="color: var(--palette-midnight-ink); max-width: 900px;">
+                                    <li>Create data visualisations with consistent styling without having to re-write the same code for every project.</li>
+                                    <li>Ensure that exported visualisations will remain consistent in both sizing and quality.</li>
+                                    <li>Easily share and re-use across different projects -> R package format.</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-7">
+                                <h2 class="fw-bolder mb-4 text-start">Design choices &amp; Methods</h2>
+                                <ul class="mb-0" style="color: var(--palette-midnight-ink); max-width: 900px;">
+                                    <li>Create a theme with intentional choices: <br> > Grid lines that guide the eye without overwhelming.<br> > Clear typography hierarchy between the titles, subtitles, axis labels, and legend.<br> > Well-defined margins and paddings for all plot elements.</li>
+                                    <li>Employ geometry wrappers that already encode common styling choices that still accepting ggplot2 standard arguments so that any default option can be overridden if needed.</li>
+                                    <li>Provide a custom function to save plots, ensuring consistent aspect ratios and image resolution.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-showcase p-4 p-md-5 mt-4 mt-md-5">
+                        <h2 class="fw-bolder mb-4 text-start">Code comparison</h2>
+                        <p class="mb-4" style="color: var(--palette-midnight-ink);">
+                            Side-by-side example of creating the same plot without and with the package.
+                        </p>
+
+                        <img
+                            src="assets/projects/lollipop_plot_highstyle.png"
+                            alt="Lollipop plot created with the highstyle package"
+                            class="img-fluid d-block mx-auto mb-4"
+                            style="width: 50%; max-width: 100%;"
+                        />
+
+                        <div class="row gx-4 gy-4 align-items-start">
+                            <div class="col-12 col-lg-6">
+                                <h3 class="h5 fw-bolder mb-3 text-start code-panel-title">Without package</h3>
+                                <pre class="code-panel-block"><code class="language-r">ggplot(df) +
+  geom_segment(aes(x = 0, xend = value, 
+                   y = category, yend = category),
+               color = "cadetblue", linewidth = 0.9) +
+  geom_point(aes(x = value, y = category),
+             color = "cadetblue", size = 3.5) +
+  labs(x = "Value", y = "Category", 
+       title="Lollipop plot") +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.margin = grid::unit(c(14, 18, 14, 14), "pt"),
+    panel.grid.major = element_line(color = "gray", 
+                                    linetype = "dotted"),
+    panel.grid.minor = element_blank(),
+    axis.text.y = element_text(size = 11),
+    plot.title = element_text(size = 14,
+                              face = "bold",
+                              hjust = 0.5,
+                              margin = margin(b = 10)),
+    axis.text = element_text(size = 12),
+    axis.title.x = element_text(size = 13,
+                                face = "bold",
+                                margin = margin(t = 10)),
+    axis.title.y = element_text(size = 13,
+                                face = "bold",
+                                margin = margin(r = 10)),
+    axis.line = element_line(linewidth = 0.6),
+    axis.ticks = element_line(linewidth = 0.6)
+  )</code></pre>
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                                <h3 class="h5 fw-bolder mb-3 text-start code-panel-title">With highstyle package</h3>
+                                <pre class="code-panel-block"><code class="language-r">ggplot(df) +
+  geom_lollipop_highstyle(aes(x = 0, xend = value, 
+                              y = category, yend = category)) +
+  labs(x = "Value", y = "Category", 
+       title="Lollipop plot") +
+  theme_highstyle()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mt-md-5">
+                        <h2 class="fw-bolder mb-4 text-start">Theme comparison</h2>
+
+                        <div class="row gx-4 gy-4 align-items-start">
+                            <div class="col-12 col-lg-6">
+                                <h3 class="h5 fw-bolder mb-3 text-start code-panel-title">ggplot2 default</h3>
+                                <img
+                                    src="assets/projects/lollipop_plot_default.png"
+                                    alt="Lollipop plot using default ggplot2 styling"
+                                    class="img-fluid w-100 rounded-2"
+                                    style="border: 1px solid rgba(82, 77, 120, 0.2);"
+                                />
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                                <h3 class="h5 fw-bolder mb-3 text-start code-panel-title">highstyle package</h3>
+                                <img
+                                    src="assets/projects/lollipop_plot_highstyle.png"
+                                    alt="Lollipop plot using the highstyle package styling"
+                                    class="img-fluid w-100 rounded-2"
+                                    style="border: 1px solid rgba(82, 77, 120, 0.2);"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="p-4 p-md-5 mt-3 mt-md-4" style="background-color: var(--palette-pale-blush);">
+                            <h3 class="fw-bolder mb-4 text-start">Theme design choices</h3>
+                            <ul class="mb-0" style="color: var(--palette-midnight-ink); max-width: 900px;">
+                                <li>Removed the coloured background for a cleaner look.</li>
+                                <li>Use of major grid lines to guide the eye to the data but keeping them subtle (grey and dashed).</li>
+                                <li>Font sizes selected to ensure readability and create a clear hierarchy.</li>
+                                <li>Intentional typeface choices to enhance readability and work well with any operating system.</li>
+                                <li>Well-defined margins to create a balanced and visually appealing layout.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    
+                    <div class="mt-4 text-start">
+                        <a class="github-project-link" href="https://github.com/elissw/highstyle/" target="_blank" rel="noopener noreferrer" aria-label="Open highstyle GitHub repository">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-3 mt-md-4 text-start">
+                        <a class="back-to-gallery" href="portfolio-overview.html">Back to gallery</a>
+                    </div>
+
+                </div>
+                
+            </section>
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; E. Stamati Portfolio 2026</div></div>
+                    <div class="col-auto"><a class="back-to-top small" href="#top">Back to top</a></div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-r.min.js"></script>
+    </body>
+</html>
